@@ -1,0 +1,11 @@
+export/
+.vscode/
+._*
+source/APIStuff.hx
+art/flashFiles/RECOVER_BoyFriend_Assets.fla
+.github/
+art/flashfiles/
+docs/
+changelog.md
+modding.md
+versionshit.txt

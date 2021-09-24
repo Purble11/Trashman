@@ -1,0 +1,9 @@
+[178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #speech_bubble_talking#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      what are you guys doing in my alley?
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      beep
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      well then get out
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      skbeep deep!
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      a rap battle? i haven't rapped in years!
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      bop
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      ...
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      okay
