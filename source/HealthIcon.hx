@@ -67,6 +67,7 @@ class HealthIcon extends FlxSprite
 			animation.add('monster', [30, 31, 32], 0, false, isPlayer);
 			animation.add('monster-christmas', [30, 31, 32], 0, false, isPlayer);
 			animation.add('trashman', [43, 44, 45], 0, false, isPlayer);
+			animation.add('lilteddy', [46, 47, 48], 0, false, isPlayer);
 
 			animation.play(char);
 		}
