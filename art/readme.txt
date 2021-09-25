@@ -17,7 +17,7 @@
 
 HEY
 Thanks for downloadin Friday Night Funkin': VS Trashman
-If you downloaded this from any other place than https://gamebanana.com/gamefiles/15309
+If you downloaded this from any other place than https://gamebanana.com/mods/312200
 You might be in DANGER!!! Unless is stated otherwise of course. 
 
 The Gamebanana release is the only official source for the desktop (PC) version of the mod!
@@ -35,7 +35,7 @@ Use the music in videos you do, use art, ANYTHING. GO CRAZY BRO.
 
 If you do make any sort of video, it would be a bro move if you linked the mod and spread the word
 
-Support on Gamebanana - https://gamebanana.com/gamefiles/15309
+Support on Gamebanana - https://gamebanana.com/mods/312200
 
 If not no biggie I don't fully hate you only kinda no biggie.
 
