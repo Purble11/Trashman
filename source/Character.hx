@@ -147,10 +147,10 @@ class Character extends FlxSprite
 				tex = Paths.getSparrowAtlas('characters/LIL_TEDDY','shared');
 				frames = tex;
 				animation.addByPrefix('idle', 'Lil Teddy idle dance', 24, false);
-				animation.addByPrefix('singUP', 'Lil Teddy Sing Note UP', 24, false);
-				animation.addByPrefix('singLEFT', 'Lil Teddy Sing Note LEFT', 24, false);
-				animation.addByPrefix('singRIGHT', 'Lil Teddy Sing Note RIGHT', 24, false);
-				animation.addByPrefix('singDOWN', 'Lil Teddy Sing Note DOWN', 24, false);
+				animation.addByPrefix('singUP', 'Lil Teddy Sing Note UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'Lil Teddy Sing Note LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'Lil Teddy Sing Note RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'Lil Teddy Sing Note DOWN0', 24, false);
 
 				loadOffsetFile("LIL_TEDDY");
 

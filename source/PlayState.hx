@@ -918,6 +918,8 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'dirty-bg':
 				gfVersion = 'dirty-gf';
+			case 'dirty-purgation':
+				gfVersion = 'dirty-gf';
 		}
 
 		gf = new Character(400, 130, gfVersion);
@@ -3199,6 +3201,9 @@ class PlayState extends MusicBeatState
 					case 'trashman':
 						camFollow.x = FlxMath.lerp(camFollow.x, dad.getMidpoint().x + -300, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 						camFollow.y = FlxMath.lerp(camFollow.y, dad.getMidpoint().y - -600, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
+					case 'lilteddy':
+						camFollow.x = FlxMath.lerp(camFollow.x, dad.getMidpoint().x + -300, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
+						camFollow.y = FlxMath.lerp(camFollow.y, dad.getMidpoint().y - -600, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 				}
 
 				if (dad.curCharacter == 'mom')
@@ -3225,6 +3230,9 @@ class PlayState extends MusicBeatState
 						camFollow.x = FlxMath.lerp(camFollow.x, boyfriend.getMidpoint().x - 300, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 						camFollow.y = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().y - 300, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 					case 'dirty-bg':
+						camFollow.y = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().y - -800, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
+						camFollow.x = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().x + 1000, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
+					case 'dirty-purgation':
 						camFollow.y = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().y - -800, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 						camFollow.x = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().x + 1000, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 				}
