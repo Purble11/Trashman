@@ -1594,7 +1594,7 @@ class PlayState extends MusicBeatState
 		camNOTEHUD.visible = false;
 		camNOTES.visible = false;
 		add(thething);
-		FlxG.camera.fade(thething, 1.6, false);
+		//FlxG.camera.fade(thething, 1.6, false);
 		new FlxTimer().start(0.01, function(tmr:FlxTimer)
 		{
 			thething.alpha += 0.1;
