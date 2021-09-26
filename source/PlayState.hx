@@ -1595,6 +1595,10 @@ class PlayState extends MusicBeatState
 		camNOTES.visible = false;
 		add(thething);
 		FlxG.camera.fade(thething, 1.6, false);
+		new FlxTimer().start(0.01, function(tmr:FlxTimer)
+		{
+			thething.alpha += 0.1;
+		}, 300);
 		thething.animation.play('idle');
 		trace('the image is the $randomthing');
 		new FlxTimer().start(3, function(tmr:FlxTimer)
