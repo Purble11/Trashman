@@ -1533,17 +1533,16 @@ class PlayState extends MusicBeatState
 		{
 			health -= 0.005;
 		}, 300);
+		//var Min:Int = 1;
+		//var Max:Int = 3;
 		
-		var Min:Int = 1;
-		var Max:Int = 3;
+		//var randomthing:Int = Math.floor(Math.random() * (1 + Max - Min)) + Min;
 		
-		var randomthing:Int = Math.floor(Math.random() * (1 + Max - Min)) + Min;
-		
-		var black:FlxSprite = new FlxSprite(-200, -200).makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.BLACK);
-		black.scrollFactor.set();
-		add(black);
+		//var black:FlxSprite = new FlxSprite(-200, -200).makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.BLACK);
+		//black.scrollFactor.set();
+		//add(black);
 		var thething:FlxSprite = new FlxSprite(-200, -100);
-		if (randomthing == 1) //image shit
+		/*if (randomthing == 1) //image shit
 		{
 			thething.loadGraphic(Paths.image('poison_image_1', 'shared'));
 			thething.animation.add('idle', [0]);
@@ -1557,7 +1556,7 @@ class PlayState extends MusicBeatState
 		{
 			thething.loadGraphic(Paths.image('poison_image_3', 'shared'));
 			thething.animation.add('idle', [0]);
-		}/*
+		}
 		else if (randomthing == 4)
 		{
 			thething.animation.addByPrefix('idle', 'put', 24, false);
@@ -1586,6 +1585,8 @@ class PlayState extends MusicBeatState
 		{
 			thething.animation.addByPrefix('idle', 'used', 24, false);
 		}*/
+		thething.loadGraphic(Paths.image('poison_image', 'shared'));
+		thething.animation.add('idle', [0]);
 		thething.setGraphicSize(Std.int(thething.width * 1.2));
 		thething.scrollFactor.set();
 		thething.updateHitbox();
@@ -1593,6 +1594,7 @@ class PlayState extends MusicBeatState
 		camNOTEHUD.visible = false;
 		camNOTES.visible = false;
 		add(thething);
+		FlxG.camera.fade(thething, 1.6, false);
 		thething.animation.play('idle');
 		trace('the image is the $randomthing');
 		new FlxTimer().start(3, function(tmr:FlxTimer)
@@ -1602,7 +1604,7 @@ class PlayState extends MusicBeatState
 			camNOTEHUD.visible = true;
 			camNOTES.visible = true;
 			remove(thething);
-			remove(black);
+			//remove(black);
 		});
 	}
 
