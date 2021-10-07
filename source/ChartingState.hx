@@ -1199,13 +1199,13 @@ class ChartingState extends MusicBeatState
 
 		//if (FlxG.keys.pressed.M) //HAHA no mine notes for u LOL
 		//	noteType = 'mine';
-		if (FlxG.keys.pressed.C)
-			noteType = 'poison-up';
-		if (FlxG.keys.pressed.X)
-			noteType = 'poison-down';
-		if (FlxG.keys.pressed.Z)
+		if (FlxG.keys.pressed.CONTROL && noteData == 0 || FlxG.keys.pressed.CONTROL && noteData == 4)
 			noteType = 'poison-left';
-		if (FlxG.keys.pressed.V)
+		if (FlxG.keys.pressed.CONTROL && noteData == 1 || FlxG.keys.pressed.CONTROL && noteData == 5)
+			noteType = 'poison-down';
+		if (FlxG.keys.pressed.CONTROL && noteData == 2 || FlxG.keys.pressed.CONTROL && noteData == 6)
+			noteType = 'poison-up';
+		if (FlxG.keys.pressed.CONTROL && noteData == 3 || FlxG.keys.pressed.CONTROL && noteData == 7)
 			noteType = 'poison-right';
 
 		if (n != null)

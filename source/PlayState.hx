@@ -1541,7 +1541,7 @@ class PlayState extends MusicBeatState
 		//var black:FlxSprite = new FlxSprite(-200, -200).makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.BLACK);
 		//black.scrollFactor.set();
 		//add(black);
-		var thething:FlxSprite = new FlxSprite(-200, -100);
+		var thething:FlxSprite = new FlxSprite(-200, -110);
 		/*if (randomthing == 1) //image shit
 		{
 			thething.loadGraphic(Paths.image('poison_image_1', 'shared'));
@@ -1587,27 +1587,39 @@ class PlayState extends MusicBeatState
 		}*/
 		thething.loadGraphic(Paths.image('poison_image', 'shared'));
 		thething.animation.add('idle', [0]);
-		thething.setGraphicSize(Std.int(thething.width * 1.2));
+		thething.setGraphicSize(Std.int(thething.width * 1.3));
 		thething.scrollFactor.set();
 		thething.updateHitbox();
-		camHUD.visible = false;
-		camNOTEHUD.visible = false;
-		camNOTES.visible = false;
+		//camHUD.visible = false;
+		//camNOTEHUD.visible = false;
+		//camNOTES.visible = false;
+		camHUD.alpha = 0.5;
+		camNOTEHUD.alpha = 0.5;
+		camNOTES.alpha = 0.5;
+		thething.alpha = 0;
 		add(thething);
-		FlxG.camera.fade(thething, 1.6, false);
+		//FlxG.camera.fade(thething, 1.6, false);
 		new FlxTimer().start(0.01, function(tmr:FlxTimer)
 		{
 			thething.alpha += 0.1;
 		}, 300);
 		thething.animation.play('idle');
-		trace('the image is the $randomthing');
+		//trace('the image is the $randomthing');
 		new FlxTimer().start(3, function(tmr:FlxTimer)
 		{
 			trace('removed the image');
-			camHUD.visible = true;
-			camNOTEHUD.visible = true;
-			camNOTES.visible = true;
-			remove(thething);
+			//camHUD.visible = true;
+			//camNOTEHUD.visible = true;
+			//camNOTES.visible = true;
+			camHUD.alpha = 1;
+			camNOTEHUD.alpha = 1;
+			camNOTES.alpha = 1;
+			new FlxTimer().start(0.01, function(tmr:FlxTimer)
+			{
+				thething.alpha -= 0.1;
+				if (thething.alpha >= 1)
+					remove(thething);
+			}, 300);
 			//remove(black);
 		});
 	}
@@ -2872,6 +2884,17 @@ class PlayState extends MusicBeatState
 				iconP1.animation.play(SONG.player1);
 			else
 				iconP1.animation.play('bf-old');
+		}
+		if (FlxG.keys.justPressed.SIX)
+		{
+			if (FlxG.keys.justPressed.NINE)
+			{
+				defaultCamZoom -= 0.1; //XD boi what the hell boi
+				camHUD.zoom -= 1;
+				camNOTES.zoom -= 1;
+				camSus.zoom -= 1;
+				camNOTEHUD.zoom -= 1;
+			}
 		}
 
 		if (FlxG.keys.justPressed.F8)

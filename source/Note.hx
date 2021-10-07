@@ -10,6 +10,7 @@ import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxMath;
 import flixel.util.FlxColor;
+import flixel.animation.FlxBaseAnimation;
 #if polymod
 import polymod.format.ParseRules.TargetSignatureElement;
 #end
@@ -28,6 +29,7 @@ class Note extends FlxSprite
 	public var tooLate:Bool = false;
 	public var wasGoodHit:Bool = false;
 	public var prevNote:Note;
+	public var animOffsets:Map<String, Array<Dynamic>>;
 
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
@@ -59,6 +61,8 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 		noteVariant = noteType;
 		isRoll = roll;
+		
+		animOffsets = new Map<String, Array<Dynamic>>();
 
 		x += 95;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
@@ -207,10 +211,11 @@ class Note extends FlxSprite
 				}
 			case 'poison-up':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 153, 153);
+				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
 				animation.add('mineScroll', [0]);
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
+				x -= 30;
 				antialiasing = true;
 
 				if (isSustainNote)
@@ -223,12 +228,12 @@ class Note extends FlxSprite
 				}
 			case 'poison-down':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 153, 153);
+				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
 				animation.add('mineScroll', [0]);
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
-
+				x -= 30;
 				if (isSustainNote)
 				{
 					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
@@ -241,12 +246,12 @@ class Note extends FlxSprite
 				angle += 180;
 			case 'poison-left':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 153, 153);
+				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
 				animation.add('mineScroll', [0]);
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
-
+				x -= 30;
 				if (isSustainNote)
 				{
 					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
@@ -259,12 +264,12 @@ class Note extends FlxSprite
 				angle += 270;
 			case 'poison-right':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 153, 153);
+				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
 				animation.add('mineScroll', [0]);
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
-
+				x -= 30;
 				if (isSustainNote)
 				{
 					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
@@ -564,5 +569,9 @@ class Note extends FlxSprite
 			case 3:
 				canMissRight = bool;
 		}
+	}
+	public function addOffset(name:String, x:Float = 0, y:Float = 0)
+	{
+		animOffsets[name] = [x, y];
 	}
 }
