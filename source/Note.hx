@@ -162,6 +162,42 @@ class Note extends FlxSprite
 						setGraphicSize(Std.int(width * 0.7));
 						updateHitbox();
 						antialiasing = true;
+					case 'dirty-bg' | 'dirty-purgation':
+						frames = Paths.getSparrowAtlas('TRASH-NOTE_assets', 'shared');
+
+						animation.addByPrefix('greenScroll', 'green0');
+						animation.addByPrefix('redScroll', 'red0');
+						animation.addByPrefix('blueScroll', 'blue0');
+						animation.addByPrefix('purpleScroll', 'purple0');
+						animation.addByPrefix('yellowScroll', 'yellow0');
+
+						animation.addByPrefix('purpleholdend', 'pruple end hold');
+						animation.addByPrefix('greenholdend', 'green hold end');
+						animation.addByPrefix('redholdend', 'red hold end');
+						animation.addByPrefix('blueholdend', 'blue hold end');
+						animation.addByPrefix('yellowholdend', 'yellow hold end');
+
+						animation.addByPrefix('purplehold', 'purple hold piece');
+						animation.addByPrefix('greenhold', 'green hold piece');
+						animation.addByPrefix('redhold', 'red hold piece');
+						animation.addByPrefix('bluehold', 'blue hold piece');
+						animation.addByPrefix('yellowhold', 'yellow hold piece');
+
+						animation.addByPrefix('purplerollend', 'purple roll end');
+						animation.addByPrefix('greenrollend', 'green roll end');
+						animation.addByPrefix('redrollend', 'red roll end');
+						animation.addByPrefix('bluerollend', 'blue roll end');
+						animation.addByPrefix('yellowrollend', 'yellow roll end');
+
+						animation.addByPrefix('purpleroll', 'purple roll piece');
+						animation.addByPrefix('greenroll', 'green roll piece');
+						animation.addByPrefix('redroll', 'red roll piece');
+						animation.addByPrefix('blueroll', 'blue roll piece');
+						animation.addByPrefix('yellowroll', 'yellow roll piece');
+
+						setGraphicSize(Std.int(width * 0.7));
+						updateHitbox();
+						antialiasing = true;
 				}
 			case 'mine':
 				switch (daStage)

@@ -271,7 +271,7 @@ class Character extends FlxSprite
 				flipX = true;
 
 			case 'dirty-bf':
-				var tex = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
+				var tex = Paths.getSparrowAtlas('characters/DIRTY-BOYFRIEND', 'shared');
 				frames = tex;
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
 				animation.addByPrefix('worried', 'BF idle worried', 24, false);

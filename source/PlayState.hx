@@ -1413,6 +1413,7 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX', 'shared'), _variables.svolume / 100);
 					dialogueOrCountdown();
 				case 'trashman' | 'rotten' | 'mutant':
+					_variables.fiveK = true;
 					camFollow.y = 50000;
 					camFollow.x += 20000;
 					dialogueOrCountdown();
@@ -1617,6 +1618,9 @@ class PlayState extends MusicBeatState
 			camHUD.alpha = 1;
 			camNOTEHUD.alpha = 1;
 			camNOTES.alpha = 1;
+			camHUD.visible = true;
+			camNOTEHUD.visible = true;
+			camNOTES.visible = true;
 			new FlxTimer().start(0.01, function(tmr:FlxTimer)
 			{
 				thething.alpha -= 0.1;
@@ -2474,6 +2478,48 @@ class PlayState extends MusicBeatState
 
 				default:
 					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+					babyArrow.animation.addByPrefix('green', 'arrowUP');
+					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
+					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
+					babyArrow.animation.addByPrefix('red', 'arrowRIGHT');
+
+					babyArrow.antialiasing = true;
+					babyArrow.setGraphicSize(Std.int(babyArrow.width * 0.7));
+
+					switch (noteOutput)
+					{
+						case 0:
+							babyArrow.x += Note.swagWidth * 0;
+							babyArrow.animation.addByPrefix('static', 'arrowLEFT');
+							babyArrow.animation.addByPrefix('pressed', 'left press', 24, false);
+							babyArrow.animation.addByIndices('confirm', 'left confirm', [0, 1, 2, 3, 3, 3, 3], "", 24, false);
+						//	var daNoteData:Int = Std.int(songNotes[1] % 5);
+						//	if ((daNote.noteVariant != "mine") && !isSustainNote)
+						//		angle += 270;
+						case 1:
+							babyArrow.x += Note.swagWidth * 1;
+							babyArrow.animation.addByPrefix('static', 'arrowDOWN');
+							babyArrow.animation.addByPrefix('pressed', 'down press', 24, false);
+							babyArrow.animation.addByIndices('confirm', 'down confirm', [0, 1, 2, 3, 3, 3, 3], "", 24, false);
+						//	var daNoteData:Int = Std.int(songNotes[1] % 5);
+						//	if ((daNote.noteVariant != "mine") && !isSustainNote)
+						//		angle += 180;
+						case 2:
+							babyArrow.x += Note.swagWidth * 2;
+							babyArrow.animation.addByPrefix('static', 'arrowUP');
+							babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
+							babyArrow.animation.addByIndices('confirm', 'up confirm', [0, 1, 2, 3, 3, 3, 3], "", 24, false);
+						case 3:
+							babyArrow.x += Note.swagWidth * 3;
+							babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
+							babyArrow.animation.addByPrefix('pressed', 'right press', 24, false);
+							babyArrow.animation.addByIndices('confirm', 'right confirm', [0, 1, 2, 3, 3, 3, 3], "", 24, false);
+						//	var daNoteData:Int = Std.int(songNotes[1] % 5);
+						//	if ((daNote.noteVariant != "mine") && !isSustainNote)
+						//		angle += 90;
+					}
+				case 'dirty-bg' | 'dirty-purgation':
+					babyArrow.frames = Paths.getSparrowAtlas('TRASH-NOTE_assets', 'shared'); //REEEEE I HAVE TO COMPILE THE GAME AGAIN
 					babyArrow.animation.addByPrefix('green', 'arrowUP');
 					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
 					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
@@ -5529,6 +5575,13 @@ class PlayState extends MusicBeatState
 					case 192:
 						trace('bf solo ended');
 						defaultCamZoom = 0.75;
+				}
+			case 'trashpurgation':
+				switch (curBeat)
+				{
+					case 44850:
+						trace('fivek = false');
+						_variables.fiveK = false;
 				}
 		}
 
