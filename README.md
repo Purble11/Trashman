@@ -73,7 +73,7 @@ Go support the original repository for the game [here](https://github.com/ninjam
 	<tr>
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Heighx</b><br>
-		<img src="https://cdn.discordapp.com/avatars/701274468483334224/f61a53b977894389297def9331dc26fb.webp?size=128" alt="Heighx" width="80" height="80"></a>
+		<img src="https://cdn.discordapp.com/avatars/701274468483334224/418356069d7e0aa3b8c92502c3c22d2b.png?size=128" alt="Heighx" width="80" height="80"></a>
 	</td>
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Purble</b></a><br>
