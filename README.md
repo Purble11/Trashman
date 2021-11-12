@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f2510bbe308317c7cc5923a0ba1c077135baf594f231674d8000f6d4601b792
-size 4028
-=======
 <p align="center">
 	<a target="_blank"><img src="/art/FNF Logo.png" alt="Logo" width="988px" height="608px"></a>
 </p>
@@ -101,4 +96,3 @@ To install please click
 <a href='https://github.com/Verwex/Funkin-Mic-d-Up-SC#installing-the-required-programs'><b>here</b></a>
 </tr>
 </tr>
->>>>>>> c3a87e999d29ed6a5f0344f97ceaac768d75c0c6
