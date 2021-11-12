@@ -397,14 +397,14 @@ class TitleState extends MusicBeatState
 
 		switch (curBeat)
 		{
-			case 4:
+			case 6:
 				createCoolText(['Purble', 'Heighx', 'Frimple Schnips', 'present']);
 			// credTextShit.text += '\npresent...';
 			// credTextShit.addText();
-			case 6:
+			case 7:
 				deleteCoolText();
 				createCoolText(['A modification', 'for']);
-			case 7:
+			case 8:
 				fnfSpr.x = -1500;
 				fnfSpr.visible = true;
 				FlxTween.quadMotion(fnfSpr, -700, -700, 50
@@ -416,29 +416,29 @@ class TitleState extends MusicBeatState
 						ease: FlxEase.quadInOut
 					});
 			// credTextShit.text += '\nNewgrounds';
-			case 8:
+			case 9:
 				deleteCoolText();
 				fnfSpr.visible = false;
 			// credTextShit.visible = false;
 
 			// credTextShit.text = 'Shoutouts Tom Fulp';
 			// credTextShit.screenCenter();
-			case 9:
+			case 10:
 				createCoolText([curWacky[0]]);
 			// credTextShit.visible = true;
-			case 10:
+			case 11:
 				if (curWacky.length > 2)
 					addMoreText(curWacky[1]);
 				else
 					trace('nof');
-			case 11:
+			case 12:
 				if (curWacky.length > 2)
 					addMoreText(curWacky[2]);
 				else
 					addMoreText(curWacky[1]);
 			// credTextShit.text += '\nlmao';
 
-			case 12:
+			case 13:
 				skipIntro();
 				trace('DID THE THING WORK?');
 		}

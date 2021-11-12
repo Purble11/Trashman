@@ -20,6 +20,7 @@ import flixel.addons.effects.FlxSkewedSprite;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
 import flixel.system.FlxSound;
@@ -27,10 +28,12 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.ui.FlxBar;
+import openfl.display3D.textures.Texture;
 import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import flixel.util.FlxTimer;
 import openfl.filters.ShaderFilter;
+import openfl.display.InteractiveObject;
 import MainVariables._variables;
 import ModifierVariables._modifiers;
 import Endless_Substate._endless;
@@ -53,6 +56,7 @@ class PlayState extends MusicBeatState
 
 	public static var loops:Int = 0;
 	public static var speed:Float = 0;
+	public static var animOffsets:Map<String, Array<Dynamic>>;
 
 	var died:Bool = false;
 
@@ -82,6 +86,7 @@ class PlayState extends MusicBeatState
 	public var vocals:FlxSound;
 
 	public var dad:Character;
+	public var dad_teddy:FlxSprite; // deez nuts GOTEM
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
 
@@ -253,6 +258,7 @@ class PlayState extends MusicBeatState
 		cheated = false;
 
 		dialogue = null;
+		animOffsets = new Map<String, Array<Dynamic>>();
 
 		sicks = 0;
 		bads = 0;
@@ -858,6 +864,25 @@ class PlayState extends MusicBeatState
 						bg.active = true;
 						add(bg);
 					}
+				case 'hard':
+					{
+						defaultCamZoom = 0.75;
+						curStage = 'dirty-multichar';
+						var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('trashpurgationstageback', 'week1'));
+						bg.antialiasing = true;
+						bg.scrollFactor.set(0.9, 0.9);
+						bg.active = true;
+						add(bg);
+						dad_teddy = new FlxSprite(-400, 400);
+						dad_teddy.frames = Paths.getSparrowAtlas('characters/LIL_TEDDY','shared');
+						dad_teddy.animation.addByPrefix('idle', 'Lil Teddy idle dance', 24, false);
+						dad_teddy.animation.addByPrefix('singUP', 'Lil Teddy Sing Note UP0', 24, false);
+						dad_teddy.animation.addByPrefix('singLEFT', 'Lil Teddy Sing Note LEFT0', 24, false);
+						dad_teddy.animation.addByPrefix('singRIGHT', 'Lil Teddy Sing Note RIGHT0', 24, false);
+						dad_teddy.animation.addByPrefix('singDOWN', 'Lil Teddy Sing Note DOWN0', 24, false);
+						add(dad_teddy);
+						dad_teddy.animation.play('idle', true);
+					}
 				default:
 					{
 						defaultCamZoom = 0.9;
@@ -916,7 +941,7 @@ class PlayState extends MusicBeatState
 				gfVersion = 'gf-pixel';
 			case 'schoolEvil':
 				gfVersion = 'gf-pixel';
-			case 'dirty-bg':
+			case 'dirty-bg'| 'dirty-multichar':
 				gfVersion = 'dirty-gf';
 			case 'dirty-purgation':
 				gfVersion = 'dirty-gf';
@@ -925,8 +950,9 @@ class PlayState extends MusicBeatState
 		gf = new Character(400, 130, gfVersion);
 		gf.scrollFactor.set(0.95, 0.95);
 
+		//var deez = Paths.getSparrowAtlas('characters/LIL_TEDDY','shared');
 		dad = new Character(100, 100, SONG.player2);
-
+		//if (curSong.toLowerCase() == 'hard')
 		var camPos:FlxPoint = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 
 		if (curStage == "schoolEvil" && !_variables.chromakey)
@@ -1067,12 +1093,16 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		add(dad);
+		//if (curSong.toLowerCase() == 'hard')
+			//add(dad_teddy);
 		add(boyfriend);
 
 		if (_variables.chromakey && _variables.charactervis)
 		{
 			gf.visible = false;
 			dad.visible = false;
+			//if (curSong.toLowerCase() == 'hard')
+				//dad_teddy.visible = false;
 			boyfriend.visible = false;
 		}
 
@@ -1413,7 +1443,7 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX', 'shared'), _variables.svolume / 100);
 					dialogueOrCountdown();
 				case 'trashman' | 'rotten' | 'mutant':
-					_variables.fiveK = true;
+					//_variables.fiveK = true;
 					camFollow.y = 50000;
 					camFollow.x += 20000;
 					dialogueOrCountdown();
@@ -1790,6 +1820,8 @@ class PlayState extends MusicBeatState
 		{
 			iconP1.setGraphicSize(Std.int(iconP1.width + 30));
 			dad.dance();
+			//if (curSong.toLowerCase() == 'hard')
+				//dad_teddy.animation.play('idle');
 			gf.dance();
 			if (!frozen)
 			{
@@ -2876,6 +2908,7 @@ class PlayState extends MusicBeatState
 		realNum = Math.round(realNum) / Math.pow(10, precision);
 		return realNum;
 	}
+	public var deez:Bool = false; //rated d for deez nuts
 
 	override public function update(elapsed:Float)
 	{
@@ -2885,6 +2918,31 @@ class PlayState extends MusicBeatState
 
 		if (startedCountdown)
 		{
+			if (curSong.toLowerCase() == 'hard' || SONG.song.toLowerCase() == 'hard')// done 
+			{
+				if (dad_teddy.animation.finished == true)
+				{
+					//dad_teddy.dance(); // ill make this better later i promise
+					dad_teddy.animation.play('idle', false);
+					hittingNote = false;
+				}
+			}
+			if (deez = false)
+				if (curSong.toLowerCase() == 'hard' || SONG.song.toLowerCase() == 'hard')
+					dad_teddy.animation.play('idle', false);
+					deez = true;
+			/*if (daNote.noteVariant == 'hehe-default' && curSong.toLowerCase() == 'hard' && daNote.noteData == 0 && dad.animation.curAnim.name.startsWith('sing') || !dad.animation.curAnim.name.startsWith('sing'))
+				dad.playAnim('idle', true);
+				dad_teddy.animation.play('singLEFT');
+			if (daNote.noteVariant == 'hehe-default' && curSong.toLowerCase() == 'hard' && daNote.noteData == 1 && dad.animation.curAnim.name.startsWith('sing') || !dad.animation.curAnim.name.startsWith('sing'))
+				dad.playAnim('idle', true);
+				dad_teddy.animation.play('singDOWN');
+			if (daNote.noteVariant == 'hehe-default' && curSong.toLowerCase() == 'hard' && daNote.noteData == 2 && dad.animation.curAnim.name.startsWith('sing') || !dad.animation.curAnim.name.startsWith('sing'))
+				dad.playAnim('idle', true);
+				dad_teddy.animation.play('singUP');
+			if (daNote.noteVariant == 'hehe-default' && curSong.toLowerCase() == 'hard' && daNote.noteData == 3 && dad.animation.curAnim.name.startsWith('sing') || !dad.animation.curAnim.name.startsWith('sing'))
+				dad.playAnim('idle', true);
+				dad_teddy.animation.play('singRIGHT');*/
 			if (_modifiers.EarthquakeSwitch)
 				FlxG.cameras.shake(_modifiers.Earthquake / 2000, 0.2);
 
@@ -2945,6 +3003,14 @@ class PlayState extends MusicBeatState
 				camNOTEHUD.zoom -= 1;
 			}
 		}
+		if (FlxG.keys.justPressed.TWO)
+			dad_teddy.animation.play('singLEFT', true);
+		if (FlxG.keys.justPressed.THREE)
+			dad_teddy.animation.play('singDOWN', true);
+		if (FlxG.keys.justPressed.FOUR)
+			dad_teddy.animation.play('singUP', true);
+		if (FlxG.keys.justPressed.FIVE)
+			dad_teddy.animation.play('singRIGHT', true);
 
 		if (FlxG.keys.justPressed.F8)
 		{
@@ -3307,7 +3373,7 @@ class PlayState extends MusicBeatState
 					case 'school' | 'schoolEvil':
 						camFollow.x = FlxMath.lerp(camFollow.x, boyfriend.getMidpoint().x - 300, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 						camFollow.y = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().y - 300, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
-					case 'dirty-bg':
+					case 'dirty-bg' | 'dirty-multichar':
 						camFollow.y = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().y - -800, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 						camFollow.x = FlxMath.lerp(camFollow.y, boyfriend.getMidpoint().x + 1000, (camLerp * _variables.cameraSpeed) / (_variables.fps / 60));
 					case 'dirty-purgation':
@@ -3646,19 +3712,50 @@ class PlayState extends MusicBeatState
 						if (SONG.notes[Math.floor(curStep / 16)].altAnim)
 							altAnim = '-alt';
 					}
-
-					if (!_variables.fiveK)
+					/*if (Math.abs(daNote.noteData) == 0 && curSong.toLowerCase() == 'hard')//&& dad_teddy)//OHHH I THINK THIS WILL DO IT
 					{
+						if (daNote.noteVariant == 'hehe-default')
+							dad_teddy.animation.play('singLEFT');
+					}
+					if (Math.abs(daNote.noteData) == 1 && curSong.toLowerCase() == 'hard')//&& dad_teddy)//OHHH I THINK THIS WILL DO IT
+					{
+						if (daNote.noteVariant == 'hehe-default')
+							dad_teddy.animation.play('singDOWN');
+					}
+					if (Math.abs(daNote.noteData) == 2 && curSong.toLowerCase() == 'hard')//&& dad_teddy)//OHHH I THINK THIS WILL DO IT
+					{
+						if (daNote.noteVariant == 'hehe-default')
+							dad_teddy.animation.play('singUP');
+					}
+					if (Math.abs(daNote.noteData) == 3 && curSong.toLowerCase() == 'hard')//&& dad_teddy)//OHHH I THINK THIS WILL DO IT
+					{
+						if (daNote.noteVariant == 'hehe-default')
+							dad_teddy.animation.play('singRIGHT');
+					}*/
+					if (!_variables.fiveK)
+					{ //song hard thingyy
 						switch (Math.abs(daNote.noteData))
 						{
 							case 0:
-								dad.playAnim('singLEFT' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singRIGHT', true);
+								else
+									dad.playAnim('singLEFT' + altAnim, true);
 							case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singRIGHT', true);
+								else
+									dad.playAnim('singDOWN' + altAnim, true);
 							case 2:
-								dad.playAnim('singUP' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singRIGHT', true);
+								else
+									dad.playAnim('singUP' + altAnim, true);
 							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singRIGHT', true);
+								else
+									dad.playAnim('singRIGHT' + altAnim, true);
 						}
 					}
 					else
@@ -3690,6 +3787,7 @@ class PlayState extends MusicBeatState
 					hittingNote = true;
 
 					dad.holdTimer = 0;
+					//dad_teddy.holdTimer = 0;
 
 					if (SONG.needsVoices)
 						vocals.volume = _variables.vvolume / 100;
@@ -4031,6 +4129,8 @@ class PlayState extends MusicBeatState
 						camNOTEHUD.angle -= 1 / 10;
 					}, 10);
 
+					if (curSong == 'hard' || SONG.song.toLowerCase() == 'hard')
+						deez = false;
 					openSubState(new RankingSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 				}
 				else
@@ -5576,12 +5676,12 @@ class PlayState extends MusicBeatState
 						trace('bf solo ended');
 						defaultCamZoom = 0.75;
 				}
-			case 'trashpurgation':
-				switch (curBeat)
+			case 'mutant':
+				switch (curStep)
 				{
-					case 44850:
-						trace('fivek = false');
-						_variables.fiveK = false;
+					case 885:
+						trace('coming soon playing');
+						//FlxG.switchState(new VideoState('assets/videos/Videoleap-coming-soon.webm', new PlayState()));
 				}
 		}
 
@@ -5681,7 +5781,10 @@ class PlayState extends MusicBeatState
 		if (!_variables.chromakey)
 		{
 			switch (curStage)
-			{
+			{//dea
+				//case 'dirty-multichar':
+				//	if (dad.animation.curAnim.name.startsWith('sing'))
+				//		dad_teddy.animation.play('idle', false);
 				case 'school':
 					bgGirls.dance();
 
@@ -5769,6 +5872,7 @@ class PlayState extends MusicBeatState
 			modState.set("noteHudCam", camNOTEHUD);
 			modState.set("gf", gf);
 			modState.set("dad", dad);
+			//modState.set("dad_teddy", dad_teddy);
 			modState.set("boyfriend", boyfriend);
 			modState.set("beatHit", beatHit);
 			modState.set("stepHit", stepHit);

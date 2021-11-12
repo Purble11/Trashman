@@ -199,6 +199,130 @@ class Note extends FlxSprite
 						updateHitbox();
 						antialiasing = true;
 				}
+				case 'hehe-default':
+					switch (daStage)
+					{
+						case 'school' | 'schoolEvil':
+							loadGraphic(Paths.image('weeb/pixelUI/arrows-pixels', 'week6'), true, 17, 17);
+
+							animation.add('greenScroll', [7]);
+							animation.add('redScroll', [8]);
+							animation.add('blueScroll', [6]);
+							animation.add('purpleScroll', [5]);
+							animation.add('yellowScroll', [9]);
+
+							if (isSustainNote)
+							{
+								if (!isRoll)
+								{
+									loadGraphic(Paths.image('weeb/pixelUI/arrowEnds', 'week6'), true, 7, 6);
+
+									animation.add('purpleholdend', [5]);
+									animation.add('greenholdend', [7]);
+									animation.add('redholdend', [8]);
+									animation.add('blueholdend', [6]);
+									animation.add('yellowholdend', [9]);
+
+									animation.add('purplehold', [0]);
+									animation.add('greenhold', [2]);
+									animation.add('redhold', [3]);
+									animation.add('bluehold', [1]);
+									animation.add('yellowhold', [4]);
+								}
+								else
+								{
+									loadGraphic(Paths.image('weeb/pixelUI/rollEnds', 'week6'), true, 16, 6);
+
+									animation.add('purplerollend', [5]);
+									animation.add('greenrollend', [7]);
+									animation.add('redrollend', [8]);
+									animation.add('bluerollend', [6]);
+									animation.add('yellowrollend', [9]);
+
+									animation.add('purpleroll', [0]);
+									animation.add('greenroll', [2]);
+									animation.add('redroll', [3]);
+									animation.add('blueroll', [1]);
+									animation.add('yellowroll', [4]);
+								}
+							}
+
+							setGraphicSize(Std.int(width * PlayState.daPixelZoom));
+							updateHitbox();
+
+						default:
+							frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+
+							animation.addByPrefix('greenScroll', 'green0');
+							animation.addByPrefix('redScroll', 'red0');
+							animation.addByPrefix('blueScroll', 'blue0');
+							animation.addByPrefix('purpleScroll', 'purple0');
+							animation.addByPrefix('yellowScroll', 'yellow0');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold');
+							animation.addByPrefix('greenholdend', 'green hold end');
+							animation.addByPrefix('redholdend', 'red hold end');
+							animation.addByPrefix('blueholdend', 'blue hold end');
+							animation.addByPrefix('yellowholdend', 'yellow hold end');
+
+							animation.addByPrefix('purplehold', 'purple hold piece');
+							animation.addByPrefix('greenhold', 'green hold piece');
+							animation.addByPrefix('redhold', 'red hold piece');
+							animation.addByPrefix('bluehold', 'blue hold piece');
+							animation.addByPrefix('yellowhold', 'yellow hold piece');
+
+							animation.addByPrefix('purplerollend', 'purple roll end');
+							animation.addByPrefix('greenrollend', 'green roll end');
+							animation.addByPrefix('redrollend', 'red roll end');
+							animation.addByPrefix('bluerollend', 'blue roll end');
+							animation.addByPrefix('yellowrollend', 'yellow roll end');
+
+							animation.addByPrefix('purpleroll', 'purple roll piece');
+							animation.addByPrefix('greenroll', 'green roll piece');
+							animation.addByPrefix('redroll', 'red roll piece');
+							animation.addByPrefix('blueroll', 'blue roll piece');
+							animation.addByPrefix('yellowroll', 'yellow roll piece');
+
+							setGraphicSize(Std.int(width * 0.7));
+							updateHitbox();
+							antialiasing = true;
+						case 'dirty-bg' | 'dirty-purgation':
+							frames = Paths.getSparrowAtlas('TRASH-NOTE_assets', 'shared');
+
+							animation.addByPrefix('greenScroll', 'green0');
+							animation.addByPrefix('redScroll', 'red0');
+							animation.addByPrefix('blueScroll', 'blue0');
+							animation.addByPrefix('purpleScroll', 'purple0');
+							animation.addByPrefix('yellowScroll', 'yellow0');
+
+							animation.addByPrefix('purpleholdend', 'pruple end hold');
+							animation.addByPrefix('greenholdend', 'green hold end');
+							animation.addByPrefix('redholdend', 'red hold end');
+							animation.addByPrefix('blueholdend', 'blue hold end');
+							animation.addByPrefix('yellowholdend', 'yellow hold end');
+
+							animation.addByPrefix('purplehold', 'purple hold piece');
+							animation.addByPrefix('greenhold', 'green hold piece');
+							animation.addByPrefix('redhold', 'red hold piece');
+							animation.addByPrefix('bluehold', 'blue hold piece');
+							animation.addByPrefix('yellowhold', 'yellow hold piece');
+
+							animation.addByPrefix('purplerollend', 'purple roll end');
+							animation.addByPrefix('greenrollend', 'green roll end');
+							animation.addByPrefix('redrollend', 'red roll end');
+							animation.addByPrefix('bluerollend', 'blue roll end');
+							animation.addByPrefix('yellowrollend', 'yellow roll end');
+
+							animation.addByPrefix('purpleroll', 'purple roll piece');
+							animation.addByPrefix('greenroll', 'green roll piece');
+							animation.addByPrefix('redroll', 'red roll piece');
+							animation.addByPrefix('blueroll', 'blue roll piece');
+							animation.addByPrefix('yellowroll', 'yellow roll piece');
+
+							setGraphicSize(Std.int(width * 0.7));
+							updateHitbox();
+							antialiasing = true;
+					}
 			case 'mine':
 				switch (daStage)
 				{
@@ -251,7 +375,14 @@ class Note extends FlxSprite
 				animation.add('mineScroll', [0]);
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
-				x -= 30;
+				if (noteData == 0 || noteData == 4)
+					angle += 270;
+				if (noteData == 1 || noteData == 5)
+					angle += 180;
+				if (noteData == 2 || noteData == 6)
+					angle = 0;
+				if (noteData == 3 || noteData == 7)
+					angle += 90;
 				antialiasing = true;
 
 				if (isSustainNote)
@@ -269,7 +400,14 @@ class Note extends FlxSprite
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
-				x -= 30;
+				if (noteData == 0 || noteData == 4)
+					angle += 270;
+				if (noteData == 1 || noteData == 5)
+					angle += 180;
+				if (noteData == 2 || noteData == 6)
+					angle = 0;
+				if (noteData == 3 || noteData == 7)
+					angle += 90;
 				if (isSustainNote)
 				{
 					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
@@ -280,6 +418,46 @@ class Note extends FlxSprite
 				}
 
 				angle += 180;
+			/*case 'hehe-default':
+				if (noteData == 0 || noteData == 4)
+					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+					animation.addByPrefix('purple', 'purple0');
+				if (noteData == 1 || noteData == 5)
+					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+					animation.addByPrefix('blue', 'blue0');
+				if (noteData == 2 || noteData == 6)
+					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+					animation.addByPrefix('green', 'green0');
+				if (noteData == 3 || noteData == 7)
+					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+					animation.addByPrefix('red', 'red0');
+				if (isSustainNote)
+				{
+					if (noteData == 0 || noteData == 4)
+						frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+						animation.addByPrefix('purpleholdend', 'purple hold end');
+						animation.addByPrefix('purplehold', 'purple hold piece');
+						animation.addByPrefix('purplerollend', 'purple roll end');
+						animation.addByPrefix('purpleroll', 'purple roll piece');
+					if (noteData == 1 || noteData == 5)
+						frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+						animation.addByPrefix('blueholdend', 'blue hold end');
+						animation.addByPrefix('bluehold', 'blue hold piece');
+						animation.addByPrefix('bluerollend', 'blue roll end');
+						animation.addByPrefix('blueroll', 'blue roll piece');
+					if (noteData == 2 || noteData == 6)
+						frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+						animation.addByPrefix('greenholdend', 'green hold end');
+						animation.addByPrefix('greenhold', 'green hold piece');
+						animation.addByPrefix('greenrollend', 'green roll end');
+						animation.addByPrefix('greeenroll', 'green roll piece');
+					if (noteData == 3 || noteData == 7)
+						frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+						animation.addByPrefix('redholdend', 'red hold end');
+						animation.addByPrefix('redhold', 'red hold piece');
+						animation.addByPrefix('redrollend', 'red roll end');
+						animation.addByPrefix('redroll', 'red roll piece');
+				}*/
 			case 'poison-left':
 				// AHHH YESSS
 				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
@@ -287,7 +465,14 @@ class Note extends FlxSprite
 				setGraphicSize(Std.int(width * 0.7));
 				updateHitbox();
 				antialiasing = true;
-				x -= 30;
+				if (noteData == 0 || noteData == 4)
+					angle += 270;
+				if (noteData == 1 || noteData == 5)
+					angle += 180;
+				if (noteData == 2 || noteData == 6)
+					angle = 0;
+				if (noteData == 3 || noteData == 7)
+					angle += 90;
 				if (isSustainNote)
 				{
 					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
@@ -306,6 +491,14 @@ class Note extends FlxSprite
 				updateHitbox();
 				antialiasing = true;
 				x -= 30;
+				if (noteData == 0 || noteData == 4)// checks if the note is on the left arrow lane
+					angle += 270;
+				if (noteData == 1 || noteData == 5)// checks if the note is on the down arrow lane
+					angle += 180;
+				if (noteData == 2 || noteData == 6)// checks if the note is on the up arrow lane
+					angle = 0;
+				if (noteData == 3 || noteData == 7)// checks if the note is on the right arrow lane
+					angle += 90;
 				if (isSustainNote)
 				{
 					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
@@ -314,8 +507,6 @@ class Note extends FlxSprite
 					animation.addByPrefix('redrollend', 'red roll end');
 					animation.addByPrefix('redroll', 'red roll piece');
 				}
-
-				angle += 90;
 			case 'death':
 				switch (daStage)
 				{

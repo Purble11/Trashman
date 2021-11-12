@@ -830,7 +830,9 @@ class ChartingState extends MusicBeatState
 			+ "\nSection: "
 			+ curSection
 			+ "\nCurStep: "
-			+ curStep;
+			+ curStep
+			+ "\nCurBeat: "
+			+ curBeat;
 		super.update(elapsed);
 	}
 
@@ -850,7 +852,9 @@ class ChartingState extends MusicBeatState
 					curSelectedNote[3] = 'poison-left';
 				if (FlxG.keys.pressed.V)
 					curSelectedNote[3] = 'poison-right';
-
+				if (FlxG.keys.pressed.FIVE)//here dumby
+					curSelectedNote[3] = 'hehe-default';
+					trace('worked???????');
 				curSelectedNote[2] += value;
 				curSelectedNote[2] = Math.max(curSelectedNote[2], 0);
 			}
@@ -1207,6 +1211,9 @@ class ChartingState extends MusicBeatState
 			noteType = 'poison-up';
 		if (FlxG.keys.pressed.CONTROL && noteData == 3 || FlxG.keys.pressed.CONTROL && noteData == 7)
 			noteType = 'poison-right';
+		if (FlxG.keys.pressed.FIVE)//here dumby
+			noteType = 'hehe-default';
+			trace('worked???????');
 
 		if (n != null)
 			_song.notes[curSection].sectionNotes.push([n.strumTime, n.noteData, n.sustainLength, n.noteVariant, n.isRoll]);

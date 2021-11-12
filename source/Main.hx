@@ -27,7 +27,7 @@ class Main extends Sprite
 	// You can pretty much ignore everything from here on - your code should go in your states.
 	public static var watermark:Sprite;
 
-	public var webmHandle:WebmHandler;
+//	public var webmHandle:WebmHandler;
 
 	public static function main():Void
 	{
@@ -80,15 +80,26 @@ class Main extends Sprite
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
-		var ourSource:String = "assets/videos/dontDelete.webm";
+/*		var ourSource:String = "assets/videos/dontDelete.webm";
 
-		var str1:String = "WEBM SHIT";
-		webmHandle = new WebmHandler();
+		#if web
+		var str1:String = "HTML CRAP";
+		var vHandler = new VideoHandler();
+		vHandler.init1();
+		vHandler.video.name = str1;
+		addChild(vHandler.video);
+		vHandler.init2();
+		GlobalVideo.setVid(vHandler);
+		vHandler.source(ourSource);
+		#elseif desktop
+		var str1:String = "WEBM SHIT"; 
+		var webmHandle = new WebmHandler();
 		webmHandle.source(ourSource);
 		webmHandle.makePlayer();
 		webmHandle.webm.name = str1;
 		addChild(webmHandle.webm);
 		GlobalVideo.setWebm(webmHandle);
+		#end*/
 
 		#if !mobile
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
