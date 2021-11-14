@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="lock.png">
+	<!-- Created with purble's notepad yay... ;-; -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="lockdeeznuts0000" x="0" y="0" width="67 height="93" frameX="0" frameY="0" frameWidth="67" 	frameHeight="93" />
+</TextureAtlas>

@@ -22,6 +22,7 @@ using StringTools;
 class MenuWeek extends MusicBeatState
 {
 	var scoreText:FlxText;
+	//var locked:FlxText;
 
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
@@ -31,16 +32,17 @@ class MenuWeek extends MusicBeatState
 		['Satin Panties', "High", "Milf"],
 		['Cocoa', 'Eggnog', 'Winter Horrorland'],
 		['Senpai', 'Roses', 'Thorns'],
-		['Trashman', 'Mutant', 'Rotten']
+		['Trashman', 'Mutant', 'Rotten'],
+		['Trash-Brothers']
 	];
 
 	var curWeekData:Array<Dynamic> = [];
 
 	public static var curDifficulty:Int = 2;
 
-	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true];
+	public static var weekUnlocked:Array<Bool> = [true, true, true, true, true, true, true, true, false]; //help
 
-	var weekCharacters:Array<String> = ["gf", "dad", "spooky", "pico", "mom", "parents-christmas", "senpai", "trashman"];
+	var weekCharacters:Array<String> = ["gf", "dad", "spooky", "pico", "mom", "parents-christmas", "senpai", "trashman", "trash-bros"];
 
 	var weekNames:Array<String> = [
 		"How to FUNK",
@@ -50,7 +52,8 @@ class MenuWeek extends MusicBeatState
 		"MOMMY MUST MURDER",
 		"RED SNOW",
 		"hating simulator ft. moawling",
-		"Trashman"
+		"Trashman",
+		"Trashman But With His Lil Bro"
 	];
 
 	var txtWeekTitle:FlxText;
@@ -135,6 +138,10 @@ class MenuWeek extends MusicBeatState
 			weekThing.screenCenter(X);
 			weekThing.antialiasing = true;
 			// weekThing.updateHitbox();
+			if (!weekUnlocked[i])
+			{
+				weekThing.alpha = 1;
+			}
 		}
 
 		side.scrollFactor.x = 0;
@@ -217,6 +224,15 @@ class MenuWeek extends MusicBeatState
 
 		scoreText.alpha = sprDifficulty.alpha = characterUI.alpha = txtWeekTitle.alpha = 0;
 		FlxTween.tween(scoreText, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
+		//try 
+		//{
+			//locked.alpha = 0;
+			//FlxTween.tween(locked, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
+		//}
+		//catch (err:Dynamic)
+		//{
+			//idk
+		//}
 		FlxTween.tween(sprDifficulty, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
 		FlxTween.tween(txtTracklist, {y: characterUI.y + 300}, 0.8, {ease: FlxEase.quartInOut});
 		FlxTween.tween(characterUI, {alpha: 1}, 0.8, {ease: FlxEase.quartInOut});
@@ -250,6 +266,8 @@ class MenuWeek extends MusicBeatState
 		scoreText.text = "WEEK SCORE:" + lerpScore;
 
 		scoreText.x = side.x + side.width / 2 - scoreText.width / 2;
+		
+		//locked.text = 'LOCKED!';
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 

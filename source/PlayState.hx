@@ -864,7 +864,7 @@ class PlayState extends MusicBeatState
 						bg.active = true;
 						add(bg);
 					}
-				case 'hard':
+				case 'trash-brothers':
 					{
 						defaultCamZoom = 0.75;
 						curStage = 'dirty-multichar';
@@ -2918,7 +2918,7 @@ class PlayState extends MusicBeatState
 
 		if (startedCountdown)
 		{
-			if (curSong.toLowerCase() == 'hard' || SONG.song.toLowerCase() == 'hard')// done 
+			if (curSong.toLowerCase() == 'trash-brothers' || SONG.song.toLowerCase() == 'trash-brothers')// done 
 			{
 				if (dad_teddy.animation.finished == true)
 				{
@@ -2928,7 +2928,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 			if (deez = false)
-				if (curSong.toLowerCase() == 'hard' || SONG.song.toLowerCase() == 'hard')
+				if (curSong.toLowerCase() == 'trash-brothers' || SONG.song.toLowerCase() == 'trash-brothers')
 					dad_teddy.animation.play('idle', false);
 					deez = true;
 			/*if (daNote.noteVariant == 'hehe-default' && curSong.toLowerCase() == 'hard' && daNote.noteData == 0 && dad.animation.curAnim.name.startsWith('sing') || !dad.animation.curAnim.name.startsWith('sing'))
@@ -3738,17 +3738,17 @@ class PlayState extends MusicBeatState
 						{
 							case 0:
 								if (daNote.noteVariant == 'hehe-default')
-									dad_teddy.animation.play('singRIGHT', true);
+									dad_teddy.animation.play('singLEFT', true);
 								else
 									dad.playAnim('singLEFT' + altAnim, true);
 							case 1:
 								if (daNote.noteVariant == 'hehe-default')
-									dad_teddy.animation.play('singRIGHT', true);
+									dad_teddy.animation.play('singDOWN', true);
 								else
 									dad.playAnim('singDOWN' + altAnim, true);
 							case 2:
 								if (daNote.noteVariant == 'hehe-default')
-									dad_teddy.animation.play('singRIGHT', true);
+									dad_teddy.animation.play('singUP', true);
 								else
 									dad.playAnim('singUP' + altAnim, true);
 							case 3:
@@ -3763,15 +3763,30 @@ class PlayState extends MusicBeatState
 						switch (Math.abs(daNote.noteData))
 						{
 							case 0:
-								dad.playAnim('singLEFT' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singLEFT', true);
+								else
+									dad.playAnim('singLEFT' + altAnim, true);
 							case 1:
-								dad.playAnim('singDOWN' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singDOWN', true);
+								else
+									dad.playAnim('singDOWN' + altAnim, true);
 							case 2:
-								dad.playAnim('singUP' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singUP', true);
+								else
+									dad.playAnim('singUP' + altAnim, true);
 							case 4:
-								dad.playAnim('singUP' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singUP', true);
+								else
+									dad.playAnim('singUP' + altAnim, true);
 							case 3:
-								dad.playAnim('singRIGHT' + altAnim, true);
+								if (daNote.noteVariant == 'hehe-default')
+									dad_teddy.animation.play('singRIGHT', true);
+								else
+									dad.playAnim('singRIGHT' + altAnim, true);
 						}
 					}
 
@@ -4129,7 +4144,7 @@ class PlayState extends MusicBeatState
 						camNOTEHUD.angle -= 1 / 10;
 					}, 10);
 
-					if (curSong == 'hard' || SONG.song.toLowerCase() == 'hard')
+					if (curSong == 'trash-brothers' || SONG.song.toLowerCase() == 'trash-brothers')
 						deez = false;
 					openSubState(new RankingSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 				}

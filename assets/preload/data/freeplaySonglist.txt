@@ -20,4 +20,5 @@ Thorns:spirit:6:#FFFF0005:#FF000000:#FFFF0005
 Trashman:trashman:7:#FF49FF00:#FF2BFFC5:#FF49FF00
 Mutant:trashman:7:#FF49FF00:#FF2BFFC5:#FF49FF00
 Rotten:trashman:7:#FF49FF00:#FF2BFFC5:#FF49FF00
-Trashpurgation:trashman:7:#FF49FF00:#FF2BFFC5:#FF49FF00
+Trash-Brothers:trashman:8:#FF49FF00:#FF2BFFC5:#FF49FF00
+Trashpurgation:trashman:8:#FF49FF00:#FF2BFFC5:#FF49FF00
