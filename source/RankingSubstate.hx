@@ -147,7 +147,11 @@ class RankingSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if (PlayState.SONG.song.toLowerCase() != 'rotten' && PlayState.gameplayArea != 'Story')
+		if (PlayState.SONG.song.toLowerCase() == 'rotten' && PlayState.gameplayArea == 'Story')
+		{
+			//deez
+		}
+		else 
 		{
 			if (pauseMusic.volume < 0.5 * _variables.mvolume / 100)
 				pauseMusic.volume += 0.01 * _variables.mvolume / 100 * elapsed;
@@ -212,7 +216,11 @@ class RankingSubstate extends MusicBeatSubstate
 
 	override function destroy()
 	{
-		if (PlayState.SONG.song.toLowerCase() != 'rotten' && PlayState.gameplayArea != 'Story')
+		if (PlayState.SONG.song.toLowerCase() == 'rotten' && PlayState.gameplayArea == 'Story')
+		{
+			//deez
+		}
+		else 
 		{
 			pauseMusic.destroy();
 
