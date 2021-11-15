@@ -1,4 +1,13 @@
 [178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #speech_bubble_talking#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
-:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      test
-:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      test
-:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      test
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~       Are you tired?
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      beep dob
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      
+fufff
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      dop deep
+:trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      No, it's okay, let's continue
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      bop
+
+
+
+
+

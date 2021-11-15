@@ -22,7 +22,7 @@ using StringTools;
 class MenuWeek extends MusicBeatState
 {
 	var scoreText:FlxText;
-	//var locked:FlxText;
+	var locked:FlxText;
 
 	var weekData:Array<Dynamic> = [
 		['Tutorial'],
@@ -501,6 +501,9 @@ class MenuWeek extends MusicBeatState
 				characterUI.offset.set(46, 4);
 			case 'trashman': // why the f does it not put it where its suppose to WHYYY
 				characterUI.scale.set(1.0, 1.0);
+				characterUI.offset.set(0, -100);
+			case 'trash-bros': // why the f does it not put it where its suppose to WHYYY
+				characterUI.scale.set(0.8, 0.8);
 				characterUI.offset.set(0, -100);
 		}
 
