@@ -2,13 +2,13 @@
 :trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~       OO
 :trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      
  You came for more?
-:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      beep!
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      beep!
 :trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~       Okay 
 :trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      
  But this time, it would be
 :trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~      
  a lil harder :)
-:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      boop deep skdeep!
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      boop deep skdeep!
 
 
 

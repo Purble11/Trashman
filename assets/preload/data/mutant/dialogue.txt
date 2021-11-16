@@ -1,8 +1,8 @@
 [178[ [179[ [223[ [216[ |Lunchbox| *0* =1= #speech_bubble_talking#  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~  <0.08< >4> (0.2( )5) {0.83{ }5} `hand_textbox` ~clickText~
 :trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~       WOW, that was good!
-:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      beep!
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      beep!
 :trashman: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^trashmantalking^ !#00000000! ?#FFFFFFFF? .. ~~       Let's sing another song 
-:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |true| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      bop!
+:bf: !default! [Funkin Bold[ ]64] *0* =0= +0+ -0- <0< >0> ;0.04; |false| #speech_bubble_talking# ^pixelText^ !#00000000! ?#FFFFFFFF? .. ~~      bop!
 
 
 
