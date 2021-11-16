@@ -844,14 +844,8 @@ class ChartingState extends MusicBeatState
 			{
 				//if (FlxG.keys.pressed.M) //HAHA no mine notes for u LOL
 				//	curSelectedNote[3] = 'mine';
-				if (FlxG.keys.pressed.C)
-					curSelectedNote[3] = 'poison-up';
-				if (FlxG.keys.pressed.X)
-					curSelectedNote[3] = 'poison-down';
-				if (FlxG.keys.pressed.Z)
-					curSelectedNote[3] = 'poison-left';
-				if (FlxG.keys.pressed.V)
-					curSelectedNote[3] = 'poison-right';
+				if (FlxG.keys.pressed.CONTROL)
+					curSelectedNote[3] = 'poison';
 				if (FlxG.keys.pressed.FIVE)//here dumby
 					curSelectedNote[3] = 'hehe-default';
 					trace('worked???????');
@@ -1203,14 +1197,8 @@ class ChartingState extends MusicBeatState
 
 		//if (FlxG.keys.pressed.M) //HAHA no mine notes for u LOL
 		//	noteType = 'mine';
-		if (FlxG.keys.pressed.CONTROL && noteData == 0 || FlxG.keys.pressed.CONTROL && noteData == 4)
-			noteType = 'poison-left';
-		if (FlxG.keys.pressed.CONTROL && noteData == 1 || FlxG.keys.pressed.CONTROL && noteData == 5)
-			noteType = 'poison-down';
-		if (FlxG.keys.pressed.CONTROL && noteData == 2 || FlxG.keys.pressed.CONTROL && noteData == 6)
-			noteType = 'poison-up';
-		if (FlxG.keys.pressed.CONTROL && noteData == 3 || FlxG.keys.pressed.CONTROL && noteData == 7)
-			noteType = 'poison-right';
+		if (FlxG.keys.pressed.CONTROL)
+			noteType = 'poison';
 		if (FlxG.keys.pressed.FIVE)//here dumby
 			noteType = 'hehe-default';
 			trace('worked???????');

@@ -73,6 +73,32 @@ class Note extends FlxSprite
 
 		var daStage:String = PlayState.curStage;
 
+		function thingg():Void
+		{
+			// AHHH YESSS
+			loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
+			animation.add('mineScroll', [0]);
+			setGraphicSize(Std.int(width * 0.7));
+			updateHitbox();
+			if (noteData == 0 || noteData == 4)
+				angle += 270;
+			if (noteData == 1 || noteData == 5)
+				angle += 180;
+			if (noteData == 2 || noteData == 6)
+				angle = 0;
+			if (noteData == 3 || noteData == 7)
+				angle += 90;
+			antialiasing = true;
+
+			if (isSustainNote)
+			{
+				frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
+				animation.addByPrefix('redholdend', 'red hold end');
+				animation.addByPrefix('redhold', 'red hold piece');
+				animation.addByPrefix('redrollend', 'red roll end');
+				animation.addByPrefix('redroll', 'red roll piece');
+			}
+		}
 		switch (noteVariant)
 		{
 			default:
@@ -371,53 +397,13 @@ class Note extends FlxSprite
 				}
 			case 'poison-up':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
-				animation.add('mineScroll', [0]);
-				setGraphicSize(Std.int(width * 0.7));
-				updateHitbox();
-				if (noteData == 0 || noteData == 4)
-					angle += 270;
-				if (noteData == 1 || noteData == 5)
-					angle += 180;
-				if (noteData == 2 || noteData == 6)
-					angle = 0;
-				if (noteData == 3 || noteData == 7)
-					angle += 90;
-				antialiasing = true;
-
-				if (isSustainNote)
-				{
-					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
-					animation.addByPrefix('redholdend', 'red hold end');
-					animation.addByPrefix('redhold', 'red hold piece');
-					animation.addByPrefix('redrollend', 'red roll end');
-					animation.addByPrefix('redroll', 'red roll piece');
-				}
+				thingg();
+			case 'poison':
+				// this is the real sh*t
+				thingg();
 			case 'poison-down':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
-				animation.add('mineScroll', [0]);
-				setGraphicSize(Std.int(width * 0.7));
-				updateHitbox();
-				antialiasing = true;
-				if (noteData == 0 || noteData == 4)
-					angle += 270;
-				if (noteData == 1 || noteData == 5)
-					angle += 180;
-				if (noteData == 2 || noteData == 6)
-					angle = 0;
-				if (noteData == 3 || noteData == 7)
-					angle += 90;
-				if (isSustainNote)
-				{
-					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
-					animation.addByPrefix('redholdend', 'red hold end');
-					animation.addByPrefix('redhold', 'red hold piece');
-					animation.addByPrefix('redrollend', 'red roll end');
-					animation.addByPrefix('redroll', 'red roll piece');
-				}
-
-				angle += 180;
+				thingg();
 			/*case 'hehe-default':
 				if (noteData == 0 || noteData == 4)
 					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
@@ -460,53 +446,10 @@ class Note extends FlxSprite
 				}*/
 			case 'poison-left':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
-				animation.add('mineScroll', [0]);
-				setGraphicSize(Std.int(width * 0.7));
-				updateHitbox();
-				antialiasing = true;
-				if (noteData == 0 || noteData == 4)
-					angle += 270;
-				if (noteData == 1 || noteData == 5)
-					angle += 180;
-				if (noteData == 2 || noteData == 6)
-					angle = 0;
-				if (noteData == 3 || noteData == 7)
-					angle += 90;
-				if (isSustainNote)
-				{
-					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
-					animation.addByPrefix('redholdend', 'red hold end');
-					animation.addByPrefix('redhold', 'red hold piece');
-					animation.addByPrefix('redrollend', 'red roll end');
-					animation.addByPrefix('redroll', 'red roll piece');
-				}
-
-				angle += 270;
+				thingg();
 			case 'poison-right':
 				// AHHH YESSS
-				loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
-				animation.add('mineScroll', [0]);
-				setGraphicSize(Std.int(width * 0.7));
-				updateHitbox();
-				antialiasing = true;
-				x -= 30;
-				if (noteData == 0 || noteData == 4)// checks if the note is on the left arrow lane
-					angle += 270;
-				if (noteData == 1 || noteData == 5)// checks if the note is on the down arrow lane
-					angle += 180;
-				if (noteData == 2 || noteData == 6)// checks if the note is on the up arrow lane
-					angle = 0;
-				if (noteData == 3 || noteData == 7)// checks if the note is on the right arrow lane
-					angle += 90;
-				if (isSustainNote)
-				{
-					frames = Paths.getSparrowAtlas('NOTE_assets', 'shared');
-					animation.addByPrefix('redholdend', 'red hold end');
-					animation.addByPrefix('redhold', 'red hold piece');
-					animation.addByPrefix('redrollend', 'red roll end');
-					animation.addByPrefix('redroll', 'red roll piece');
-				}
+				thingg();
 			case 'death':
 				switch (daStage)
 				{
