@@ -70,7 +70,7 @@ https://twitter.com/Vershift
 https://twitter.com/kadedeveloper
 https://steamcommunity.com/profiles/76561198353865795
 
-VS Trashman is made by heighx (Mod creator), Purble (Programmer), and Frimple Schnips (artist)
+VS Trashman is made by heighx (Mod creator), Khrigar (Musician), Purble (Programmer), ThatCoolBaro (artist), CanadianGoose (artist) and Frimple Schnips (artist)
 
 Pico is created by Tom Fulp
 Skid and Pump are created by SrPelo
