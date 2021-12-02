@@ -13,7 +13,7 @@ Play the Ludum Dare prototype of the original game [here](https://ninja-muffin24
 Go support the original repository for the game [here](https://github.com/ninjamuffin99/Funkin)!
 
 ## Credits / Shoutouts
-<!--me lol-->
+<!--me lol -->
 <table style="span:90%">
 	<tr>
 		<th style="text-align:left"><h3>🖥 Programmers:</h3></th>
