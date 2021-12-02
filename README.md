@@ -13,7 +13,7 @@ Play the Ludum Dare prototype of the original game [here](https://ninja-muffin24
 Go support the original repository for the game [here](https://github.com/ninjamuffin99/Funkin)!
 
 ## Credits / Shoutouts
-<!--me lol -->
+<!--me lol-->
 <table style="span:90%">
 	<tr>
 		<th style="text-align:left"><h3>🖥 Programmers:</h3></th>
@@ -85,11 +85,9 @@ Go support the original repository for the game [here](https://github.com/ninjam
 		<img src="https://media.discordapp.net/attachments/859361900910608395/873612822989385728/MY_PFP.gif?width=498&height=498" alt="Purble" width="80" height="80"></a>
 	</td>
 	<td>
-		<a href='https://github.com/Purble11/Trashman'><b>Frimple Schnips</b></a><br>
+		<a href='https://github.com/Purble11/Trashman'><b>Frimple Schnips</b></a>, <a href='https://github.com/Purble11/Trashman'><b>ThatCoolBaro</b></a>and <a href='https://github.com/Purble11/Trashman'><b>CanadianGoose</b></a><br>
 		<img src="/art/Frimple Schnips.png" alt="Frimple Schnips" width="80" height="80"></a>
-		<a href='https://github.com/Purble11/Trashman'><b>ThatCoolBaro</b></a><br>
 		<img src="/art/ThatCoolBaro.png" alt="ThatCoolBaro" width="80" height="80"></a>
-		<a href='https://github.com/Purble11/Trashman'><b>CanadianGoose</b></a><br>
 		<img src="/art/CanadianGoose.png" alt="CanadianGoose" width="80" height="80"></a>
 	</tr>
 </table>
