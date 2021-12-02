@@ -67,13 +67,18 @@ Go support the original repository for the game [here](https://github.com/ninjam
 <table style="span:90%">
 	<tr>
 		<th style=”text-align:left”><h4>⚙️ Mod Creator:</h4></th>
-				<th style="text-align:middle"><h4>🖥 Mod Programmer:</h4></th>
+		<th style="text-align:right"><h3>🎶 Musicians:</h3></th>
+		<th style="text-align:middle"><h4>🖥 Mod Programmer:</h4></th>
 		<th style="text-align:right"><h4>🖼 Mod Artist:</h4></th>
 	</tr>
 	<tr>
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Heighx</b><br>
-		<img src="https://cdn.discordapp.com/avatars/701274468483334224/418356069d7e0aa3b8c92502c3c22d2b.png?size=128" alt="Heighx" width="80" height="80"></a>
+		<img src="https://cdn.discordapp.com/avatars/701274468483334224/b52bfd7e2cd903f479a70b1325d67df6.png?size=128" alt="Heighx" width="80" height="80"></a>
+	</td>
+	<td>
+		<a href='https://github.com/Purble11/Trashman'><b>Khringar</b></a><br>
+		<img src="/art/Khringar.png" alt="Khringar" width="80" height="80"></a>
 	</td>
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Purble</b></a><br>
@@ -82,11 +87,21 @@ Go support the original repository for the game [here](https://github.com/ninjam
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Frimple Schnips</b></a><br>
 		<img src="/art/Frimple Schnips.png" alt="Frimple Schnips" width="80" height="80"></a>
+		<a href='https://github.com/Purble11/Trashman'><b>ThatCoolBaro</b></a><br>
+		<img src="/art/ThatCoolBaro.png" alt="ThatCoolBaro" width="80" height="80"></a>
+		<a href='https://github.com/Purble11/Trashman'><b>CanadianGoose</b></a><br>
+		<img src="/art/CanadianGoose.png" alt="CanadianGoose" width="80" height="80"></a>
 	</tr>
 </table>
 </table>
 
 **This mod was made with love to Friday Night Funkin' and its community. Extra love to the team behind it. 💖**
+</tr>
+</tr>
+</tr>
+<h2>Twitter</h2>
+Our Twitter is 
+<a href='https://github.com/Purble11/Trashman'><b>here</b></a>
 </tr>
 </tr>
 </tr>
