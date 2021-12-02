@@ -77,8 +77,8 @@ Go support the original repository for the game [here](https://github.com/ninjam
 		<img src="https://cdn.discordapp.com/avatars/701274468483334224/b52bfd7e2cd903f479a70b1325d67df6.png?size=128" alt="Heighx" width="80" height="80"></a>
 	</td>
 	<td>
-		<a href='https://github.com/Purble11/Trashman'><b>Khringar</b></a><br>
-		<img src="/art/Khringar.png" alt="Khringar" width="80" height="80"></a>
+		<a href='https://github.com/Purble11/Trashman'><b>Khrigar</b></a><br>
+		<img src="/art/Khrigar.png" alt="Khringar" width="80" height="80"></a>
 	</td>
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Purble</b></a><br>
