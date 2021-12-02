@@ -99,7 +99,7 @@ Go support the original repository for the game [here](https://github.com/ninjam
 </tr>
 <h2>Twitter</h2>
 Our Twitter is 
-<a href='https://github.com/Purble11/Trashman'><b>here</b></a>
+<a href='https://twitter.com/trashmanfnf'><b>here</b></a>
 </tr>
 </tr>
 </tr>
