@@ -78,7 +78,7 @@ Go support the original repository for the game [here](https://github.com/ninjam
 	</td>
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Khrigar</b></a><br>
-		<img src="/art/Khrigar.png" alt="Khringar" width="80" height="80"></a>
+		<img src="/art/Khrigar.png" alt="Khrigar" width="80" height="80"></a>
 	</td>
 	<td>
 		<a href='https://github.com/Purble11/Trashman'><b>Purble</b></a><br>
