@@ -67,7 +67,7 @@ Go support the original repository for the game [here](https://github.com/ninjam
 <table style="span:90%">
 	<tr>
 		<th style=”text-align:left”><h4>⚙️ Mod Creator:</h4></th>
-		<th style="text-align:right"><h3>🎶 Musicians:</h3></th>
+		<th style="text-align:right"><h3>🎶 Mod Musicians:</h3></th>
 		<th style="text-align:middle"><h4>🖥 Mod Programmer:</h4></th>
 		<th style="text-align:right"><h4>🖼 Mod Artist:</h4></th>
 	</tr>
