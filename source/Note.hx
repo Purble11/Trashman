@@ -77,7 +77,7 @@ class Note extends FlxSprite
 		{
 			// AHHH YESSS
 			loadGraphic(Paths.image('arrowPOISON', 'shared'), true, 248, 240);
-			animation.add('mineScroll', [0]);
+			animation.add('poisonScroll', [0]);
 			setGraphicSize(Std.int(width * 0.7));
 			updateHitbox();
 			if (noteData == 0 || noteData == 4)
@@ -98,6 +98,7 @@ class Note extends FlxSprite
 				animation.addByPrefix('redrollend', 'red roll end');
 				animation.addByPrefix('redroll', 'red roll piece');
 			}
+			x -= 10;
 		}
 		switch (noteVariant)
 		{

@@ -5109,51 +5109,7 @@ class PlayState extends MusicBeatState
 							health -= 0.04 * _modifiers.HPLoss + (_variables.comboH ? 0.00075 * combo : 0);
 						else
 							health -= 0.04 + (_variables.comboH ? 0.00075 * combo : 0);
-					case 'mine':
-						if (_modifiers.HPLossSwitch)
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-						else
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-					case 'poison-up':
-						if (_modifiers.HPLossSwitch)
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-						else
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-					case 'poison-down':
-						if (_modifiers.HPLossSwitch)
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-						else
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-					case 'poison-left':
-						if (_modifiers.HPLossSwitch)
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-						else
-						{
-							HealthDrain();
-							trace ("WORKS????");
-						}
-					case 'poison-right':
+					case 'poison':
 						if (_modifiers.HPLossSwitch)
 						{
 							HealthDrain();
