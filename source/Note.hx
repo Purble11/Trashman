@@ -98,7 +98,7 @@ class Note extends FlxSprite
 				animation.addByPrefix('redrollend', 'red roll end');
 				animation.addByPrefix('redroll', 'red roll piece');
 			}
-			x -= 10;
+			x -= 20;
 		}
 		switch (noteVariant)
 		{

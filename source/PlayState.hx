@@ -1618,7 +1618,7 @@ class PlayState extends MusicBeatState
 		}*/
 		thething.loadGraphic(Paths.image('poison_image', 'shared'));
 		thething.animation.add('idle', [0]);
-		thething.setGraphicSize(Std.int(thething.width * 1.3));
+		thething.setGraphicSize(Std.int(thething.width * 1.2));
 		thething.scrollFactor.set();
 		thething.updateHitbox();
 		//camHUD.visible = false;
@@ -1654,7 +1654,7 @@ class PlayState extends MusicBeatState
 			new FlxTimer().start(0.01, function(tmr:FlxTimer)
 			{
 				thething.alpha -= 0.1;
-				if (thething.alpha >= 1)
+				if (0 >= thething.alpha)
 					remove(thething);
 			}, 300);
 			//remove(black);
@@ -3700,7 +3700,7 @@ class PlayState extends MusicBeatState
 					daNote.clipRect = swagRect;
 				}
 
-				if (!daNote.mustPress && daNote.wasGoodHit && (daNote.noteVariant != "mine" && daNote.noteVariant != 'death' && daNote.noteVariant != 'poison-up' && daNote.noteVariant != 'poison-down' && daNote.noteVariant != 'poison-left' && daNote.noteVariant != 'poison-right'))
+				if (!daNote.mustPress && daNote.wasGoodHit && (daNote.noteVariant != "mine" && daNote.noteVariant != 'death' && daNote.noteVariant != 'poison-up' && daNote.noteVariant != 'poison-down' && daNote.noteVariant != 'poison-left' && daNote.noteVariant != 'poison-right' && daNote.noteVariant != 'poison'))
 				{
 					if (SONG.song != 'Tutorial')
 						camZooming = true;
@@ -3872,7 +3872,7 @@ class PlayState extends MusicBeatState
 				if (daNote.y < (arrowStrum - 75) - 25 * (SONG.speed) - 70 * _modifiers.NoteSpeed - 1.5 * _modifiers.DrunkNotes - 11 * _modifiers.AccelNotes
 					- 128 * Math.abs(_modifiers.Offbeat / 100))
 				{
-					if (daNote.noteVariant != "mine" && daNote.noteVariant != 'death' && daNote.noteVariant != 'poison-up' && daNote.noteVariant != 'poison-down' && daNote.noteVariant != 'poison-left' && daNote.noteVariant != 'poison-right')
+					if (daNote.noteVariant != "mine" && daNote.noteVariant != 'death' && daNote.noteVariant != 'poison-up' && daNote.noteVariant != 'poison-down' && daNote.noteVariant != 'poison-left' && daNote.noteVariant != 'poison-right' && daNote.noteVariant != 'poison')
 					{
 						if (!daNote.isSustainNote)
 							daNote.tooLate = true;
@@ -4857,7 +4857,7 @@ class PlayState extends MusicBeatState
 				// Force good note hit regardless if it's too late to hit it or not as a fail safe
 				if (daNote.canBeHit && daNote.mustPress || daNote.tooLate && daNote.mustPress)
 				{
-					if (daNote.noteVariant != "mine" && daNote.noteVariant != 'death' && daNote.noteVariant != 'poison-up' && daNote.noteVariant != 'poison-down' && daNote.noteVariant != 'poison-left' && daNote.noteVariant != 'poison-right')
+					if (daNote.noteVariant != "mine" && daNote.noteVariant != 'death' && daNote.noteVariant != 'poison-up' && daNote.noteVariant != 'poison-down' && daNote.noteVariant != 'poison-left' && daNote.noteVariant != 'poison-right' && daNote.noteVariant != 'poison')
 					{
 						goodNoteHit(daNote);
 						boyfriend.holdTimer = 0;
@@ -5344,7 +5344,7 @@ class PlayState extends MusicBeatState
 		{
 			hittingNote = true;
 
-			if (note.noteVariant == "mine" || note.noteVariant == 'death' || note.noteVariant == 'poison-up' || note.noteVariant == 'poison-down' || note.noteVariant == 'poison-left' || note.noteVariant == 'poison-right') //foot
+			if (note.noteVariant == "mine" || note.noteVariant == 'death' || note.noteVariant == 'poison-up' || note.noteVariant == 'poison-down' || note.noteVariant == 'poison-left' || note.noteVariant == 'poison-right' || note.noteVariant == 'poison') //foot
 			{
 				noteMiss(note.noteData, note);
 			}

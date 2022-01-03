@@ -29,15 +29,15 @@ class RankingSubstate extends MusicBeatSubstate
 	{
 		super();
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width * 312312, FlxG.height * 321312321, FlxColor.BLACK);
 		bg.alpha = 0;
 		bg.scrollFactor.set();
 
-		if (PlayState.SONG.song.toLowerCase() == 'rotten' && PlayState.gameplayArea == 'Story')
+		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
 		{
 			var video:MP4Handler = new MP4Handler();
 
-			video.playMP4(Paths.video('Videoleap-coming-soon'));
+			video.playMP4(Paths.video('Credits-by-purble'));
 			video.finishCallback = function()
 			{
 				if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
@@ -64,7 +64,7 @@ class RankingSubstate extends MusicBeatSubstate
 			if (!PlayState.cheated && !_variables.botplay)
 				Highscore.saveRank(PlayState.SONG.song, rankingNum, PlayState.storyDifficulty);
 
-			if (PlayState.SONG.song.toLowerCase() != 'rotten' && PlayState.gameplayArea != 'Story')
+			if (PlayState.SONG.song.toLowerCase() != 'trash-brothers' && PlayState.gameplayArea != 'Story')
 			{
 				pauseMusic = new FlxSound().loadEmbedded(Paths.music('breakfast'), true, true);
 				pauseMusic.volume = 0;
@@ -147,9 +147,30 @@ class RankingSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if (PlayState.SONG.song.toLowerCase() == 'rotten' && PlayState.gameplayArea == 'Story')
+		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
 		{
-			//deez
+			/*if (CreditsBg.alpha == 1 && credits.alpha == 1)
+			{
+				credits.y += 1;
+				credits.alignment = CENTER;
+				credits.screenCenter(X);
+				if (credits.y == 720)
+				{
+					CreditsBg.alpha -= 0.2;
+					credits.alpha -= 0.2;
+					if (CreditsBg.alpha == 0 && credits.alpha == 0)
+					{
+						remove(credits);
+						remove(CreditsBg);
+						FlxG.switchState(new MenuWeek());
+					}
+				}
+			}
+			else 
+			{
+				CreditsBg.alpha += 0.2;
+				credits.alpha += 0.2;
+			}*/
 		}
 		else 
 		{
@@ -216,7 +237,7 @@ class RankingSubstate extends MusicBeatSubstate
 
 	override function destroy()
 	{
-		if (PlayState.SONG.song.toLowerCase() == 'rotten' && PlayState.gameplayArea == 'Story')
+		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
 		{
 			//deez
 		}
