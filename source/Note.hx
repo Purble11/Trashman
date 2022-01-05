@@ -80,14 +80,28 @@ class Note extends FlxSprite
 			animation.add('poisonScroll', [0]);
 			setGraphicSize(Std.int(width * 0.7));
 			updateHitbox();
-			if (noteData == 0 || noteData == 4)
-				angle += 270;
-			if (noteData == 1 || noteData == 5)
-				angle += 180;
-			if (noteData == 2 || noteData == 6)
-				angle = 0;
-			if (noteData == 3 || noteData == 7)
-				angle += 90;
+			if (_variables.scroll == "up")
+			{
+				if (noteData == 0 || noteData == 4)
+					angle += 270;
+				if (noteData == 1 || noteData == 5)
+					angle += 180;
+				if (noteData == 2 || noteData == 6)
+					angle = 0;
+				if (noteData == 3 || noteData == 7)
+					angle += 90;
+			}
+			else if (_variables.scroll == "down")
+			{
+				if (noteData == 3 || noteData == 7)
+					angle += 270;
+				if (noteData == 1 || noteData == 5)
+					angle += 180;
+				if (noteData == 2 || noteData == 6)
+					angle = 0;
+				if (noteData == 0 || noteData == 4)
+					angle += 90;
+			}
 			antialiasing = true;
 
 			if (isSustainNote)

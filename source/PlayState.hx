@@ -2570,6 +2570,17 @@ class PlayState extends MusicBeatState
 						//	var daNoteData:Int = Std.int(songNotes[1] % 5);
 						//	if ((daNote.noteVariant != "mine") && !isSustainNote)
 						//		angle += 270;
+							/*if (_variables.scroll == "down")
+							{
+								if (babyArrow.animOffsets.exists('static'))
+								{
+									offset.remove(0, 15);
+								}
+							}
+							if (babyArrow.animOffsets.exists('static'))
+							{
+								offset.add(10, 0);
+							}*/
 						case 1:
 							babyArrow.x += Note.swagWidth * 1;
 							babyArrow.animation.addByPrefix('static', 'arrowDOWN');
@@ -2578,11 +2589,26 @@ class PlayState extends MusicBeatState
 						//	var daNoteData:Int = Std.int(songNotes[1] % 5);
 						//	if ((daNote.noteVariant != "mine") && !isSustainNote)
 						//		angle += 180;
+							/*if (_variables.scroll == "down")
+							{
+								if (babyArrow.animOffsets.exists('static'))
+								{
+									offset.remove(0, 15);
+								}
+							}
+							if (babyArrow.animOffsets.exists('static'))
+							{
+								offset.add(10, 0);
+							}*/
 						case 2:
 							babyArrow.x += Note.swagWidth * 2;
 							babyArrow.animation.addByPrefix('static', 'arrowUP');
 							babyArrow.animation.addByPrefix('pressed', 'up press', 24, false);
-							babyArrow.animation.addByIndices('confirm', 'up confirm', [0, 1, 2, 3, 3, 3, 3], "", 24, false);
+							babyArrow.animation.addByIndices('confirm', 'up confirm', [0, 1, 2, 3, 3, 3, 3], "", 24, false);/*
+							if (babyArrow.animOffsets.exists('static'))
+							{
+								offset.add(10, 0);
+							}*/
 						case 3:
 							babyArrow.x += Note.swagWidth * 3;
 							babyArrow.animation.addByPrefix('static', 'arrowRIGHT');
@@ -2591,6 +2617,10 @@ class PlayState extends MusicBeatState
 						//	var daNoteData:Int = Std.int(songNotes[1] % 5);
 						//	if ((daNote.noteVariant != "mine") && !isSustainNote)
 						//		angle += 90;
+							/*if (babyArrow.animOffsets.exists('static'))
+							{
+								offset.add(10, 0);
+							}*/
 					}
 			}
 
