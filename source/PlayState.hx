@@ -1618,7 +1618,7 @@ class PlayState extends MusicBeatState
 		}*/
 		thething.loadGraphic(Paths.image('poison_image', 'shared'));
 		thething.animation.add('idle', [0]);
-		thething.setGraphicSize(Std.int(thething.width * 1.2));
+		thething.setGraphicSize(FlxG.height, FlxG.width);
 		thething.scrollFactor.set();
 		thething.updateHitbox();
 		//camHUD.visible = false;
@@ -4174,9 +4174,32 @@ class PlayState extends MusicBeatState
 						camNOTEHUD.angle -= 1 / 10;
 					}, 10);
 
-					if (curSong == 'trash-brothers' || SONG.song.toLowerCase() == 'trash-brothers')
-						deez = false;
-					openSubState(new RankingSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+					if (PlayState.SONG.song.toLowerCase() == 'trash-brothers')
+					{
+						trace("Thanks for playing this mod here is the credits!");
+						var video:MP4Handler = new MP4Handler();
+
+						video.playMP4(Paths.video('Credits-by-purble'));
+						video.finishCallback = function()
+						{
+							if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
+							{
+								FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
+								Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
+							}
+							else
+							{
+								FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
+								Conductor.changeBPM(102);
+							}
+
+							FlxG.switchState(new MenuWeek());
+						}
+					}
+					else
+					{
+						openSubState(new RankingSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+					}
 				}
 				else
 				{

@@ -14,9 +14,6 @@ import ModifierVariables._modifiers;
 
 class RankingSubstate extends MusicBeatSubstate
 {
-	//if (PlayState.SONG.song.toLowerCase() != 'mutant')// && PlayState.gameplayArea != 'Story')
-	//{
-	//}
 	var pauseMusic:FlxSound;
 
 	var rank:FlxSprite = new FlxSprite(-200, 730);
@@ -29,224 +26,163 @@ class RankingSubstate extends MusicBeatSubstate
 	{
 		super();
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width * 312312, FlxG.height * 321312321, FlxColor.BLACK);
+		generateRanking();
+
+		var image = lime.graphics.Image.fromFile('assets/images/iconOG.png');
+		lime.app.Application.current.window.setIcon(image);
+
+		if (!PlayState.cheated && !_variables.botplay)
+			Highscore.saveRank(PlayState.SONG.song, rankingNum, PlayState.storyDifficulty);
+
+		pauseMusic = new FlxSound().loadEmbedded(Paths.music('breakfast'), true, true);
+		pauseMusic.volume = 0;
+		pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
+
+		FlxG.sound.list.add(pauseMusic);
+
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		bg.alpha = 0;
 		bg.scrollFactor.set();
+		add(bg);
 
-		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
+		rank = new FlxSprite(-20, 40).loadGraphic(Paths.image('rankings/$ranking'));
+		rank.scrollFactor.set();
+		add(rank);
+		rank.antialiasing = true;
+		rank.setGraphicSize(0, 450);
+		rank.updateHitbox();
+		rank.screenCenter();
+
+		combo = new FlxSprite(-20, 40).loadGraphic(Paths.image('rankings/$comboRank'));
+		combo.scrollFactor.set();
+		combo.screenCenter();
+		combo.x = rank.x - combo.width / 2;
+		combo.y = rank.y - combo.height / 2;
+		add(combo);
+		combo.antialiasing = true;
+		combo.setGraphicSize(0, 130);
+
+		var press:FlxText = new FlxText(20, 15, 0, "Press ANY to continue.", 32);
+		press.scrollFactor.set();
+		press.setFormat(Paths.font("vcr.ttf"), 32);
+		press.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
+		press.updateHitbox();
+		add(press);
+
+		var hint:FlxText = new FlxText(20, 15, 0, "You passed. Try getting under 10 misses for SDCB", 32);
+		hint.scrollFactor.set();
+		hint.setFormat(Paths.font("vcr.ttf"), 32);
+		hint.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
+		hint.updateHitbox();
+		add(hint);
+
+		switch (comboRank)
 		{
-			var video:MP4Handler = new MP4Handler();
-
-			video.playMP4(Paths.video('Credits-by-purble'));
-			video.finishCallback = function()
-			{
-				if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
-				{
-					FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
-					Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
-				}
-				else
-				{
-					FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
-					Conductor.changeBPM(102);
-				}
-
-				FlxG.switchState(new MenuWeek());
-			}
+			case 'MFC':
+				hint.text = "Congrats! You're perfect!";
+			case 'GFC':
+				hint.text = "You're doing great! Try getting only sicks for MFC";
+			case 'FC':
+				hint.text = "Good job. Try getting goods at minimum for GFC.";
+			case 'SDCB':
+				hint.text = "Nice. Try not missing at all for FC.";
 		}
-		else
+
+		if (PlayState.cheated)
+			hint.text = "BOOOO, YOU CHEATER! YOU SHOULD BE ASHAMED OF YOURSELF!";
+
+		if (_variables.botplay)
 		{
-			generateRanking();
-
-			var image = lime.graphics.Image.fromFile('assets/images/iconOG.png');
-			lime.app.Application.current.window.setIcon(image);
-
-			if (!PlayState.cheated && !_variables.botplay)
-				Highscore.saveRank(PlayState.SONG.song, rankingNum, PlayState.storyDifficulty);
-
-			if (PlayState.SONG.song.toLowerCase() != 'trash-brothers' && PlayState.gameplayArea != 'Story')
-			{
-				pauseMusic = new FlxSound().loadEmbedded(Paths.music('breakfast'), true, true);
-				pauseMusic.volume = 0;
-				pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
-
-				FlxG.sound.list.add(pauseMusic);
-			}
-
-			rank = new FlxSprite(-20, 40).loadGraphic(Paths.image('rankings/$ranking'));
-			rank.scrollFactor.set();
-			add(rank);
-			rank.antialiasing = true;
-			rank.setGraphicSize(0, 450);
-			rank.updateHitbox();
-			rank.screenCenter();
-
-			combo = new FlxSprite(-20, 40).loadGraphic(Paths.image('rankings/$comboRank'));
-			combo.scrollFactor.set();
-			combo.screenCenter();
-			combo.x = rank.x - combo.width / 2;
-			combo.y = rank.y - combo.height / 2;
-			add(combo);
-			combo.antialiasing = true;
-			combo.setGraphicSize(0, 130);
-
-			var press:FlxText = new FlxText(20, 15, 0, "Press ANY to continue.", 32);
-			press.scrollFactor.set();
-			press.setFormat(Paths.font("vcr.ttf"), 32);
-			press.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
-			press.updateHitbox();
-			add(press);
-
-			var hint:FlxText = new FlxText(20, 15, 0, "You passed. Try getting under 10 misses for SDCB", 32);
-			hint.scrollFactor.set();
-			hint.setFormat(Paths.font("vcr.ttf"), 32);
-			hint.setBorderStyle(OUTLINE, 0xFF000000, 5, 1);
-			hint.updateHitbox();
-			add(hint);
-
-			switch (comboRank)
-			{
-				case 'MFC':
-					hint.text = "Congrats! You're perfect!";
-				case 'GFC':
-					hint.text = "You're doing great! Try getting only sicks for MFC";
-				case 'FC':
-					hint.text = "Good job. Try getting goods at minimum for GFC.";
-				case 'SDCB':
-					hint.text = "Nice. Try not missing at all for FC.";
-			}
-
-			if (PlayState.cheated)
-				hint.text = "BOOOO, YOU CHEATER! YOU SHOULD BE ASHAMED OF YOURSELF!";
-
-			if (_variables.botplay)
-			{
-				hint.y -= 35;
-				hint.text = "If you wanna gather that rank, disable botplay.";
-			}
-
-			if (PlayState.curDeaths >= 30)
-			{
-				hint.text = "skill issue\nnoob";
-			}
-
-			hint.screenCenter(X);
-
-			hint.alpha = press.alpha = 0;
-
-			press.screenCenter();
-			press.y = 670 - press.height;
-
-			FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
-			FlxTween.tween(press, {alpha: 1, y: 690 - press.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-			FlxTween.tween(hint, {alpha: 1, y: 645 - hint.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-
-			cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+			hint.y -= 35;
+			hint.text = "If you wanna gather that rank, disable botplay.";
 		}
+
+		if (PlayState.curDeaths >= 30)
+		{
+			hint.text = "skill issue\nnoob";
+		}
+
+		hint.screenCenter(X);
+
+		hint.alpha = press.alpha = 0;
+
+		press.screenCenter();
+		press.y = 670 - press.height;
+
+		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
+		FlxTween.tween(press, {alpha: 1, y: 690 - press.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+		FlxTween.tween(hint, {alpha: 1, y: 645 - hint.height}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+
+		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 	}
 
 	override function update(elapsed:Float)
 	{
-		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
+		if (pauseMusic.volume < 0.5 * _variables.mvolume / 100)
+			pauseMusic.volume += 0.01 * _variables.mvolume / 100 * elapsed;
+
+		super.update(elapsed);
+
+		if (FlxG.keys.justPressed.ANY || _modifiers.Practice)
 		{
-			/*if (CreditsBg.alpha == 1 && credits.alpha == 1)
+			PlayState.ended = false;
+
+			switch (PlayState.gameplayArea)
 			{
-				credits.y += 1;
-				credits.alignment = CENTER;
-				credits.screenCenter(X);
-				if (credits.y == 720)
-				{
-					CreditsBg.alpha -= 0.2;
-					credits.alpha -= 0.2;
-					if (CreditsBg.alpha == 0 && credits.alpha == 0)
+				case "Story":
+					if (PlayState.storyPlaylist.length <= 0)
 					{
-						remove(credits);
-						remove(CreditsBg);
-						FlxG.switchState(new MenuWeek());
-					}
-				}
-			}
-			else 
-			{
-				CreditsBg.alpha += 0.2;
-				credits.alpha += 0.2;
-			}*/
-		}
-		else
-		{
-			if (pauseMusic.volume < 0.5 * _variables.mvolume / 100)
-				pauseMusic.volume += 0.01 * _variables.mvolume / 100 * elapsed;
-
-			super.update(elapsed);
-
-			if (FlxG.keys.justPressed.ANY || _modifiers.Practice)
-			{
-				PlayState.ended = false;
-
-				switch (PlayState.gameplayArea)
-				{
-					case "Story":
-						if (PlayState.storyPlaylist.length <= 0)
+						if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
 						{
-							if (FileSystem.exists(Paths.music('menu/' + _variables.music)))
-							{
-								FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
-								Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
-							}
-							else
-							{
-								FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
-								Conductor.changeBPM(102);
-							}
-
-							FlxG.switchState(new MenuWeek());
+							FlxG.sound.playMusic(Paths.music('menu/' + _variables.music), _variables.mvolume / 100);
+							Conductor.changeBPM(Std.parseFloat(File.getContent('assets/music/menu/' + _variables.music + '_BPM.txt')));
 						}
 						else
 						{
-							var difficulty:String = "";
-
-							if (PlayState.storyDifficulty == 0)
-								difficulty = '-noob';
-
-							if (PlayState.storyDifficulty == 1)
-								difficulty = '-easy';
-
-							if (PlayState.storyDifficulty == 3)
-								difficulty = '-hard';
-
-							if (PlayState.storyDifficulty == 4)
-								difficulty = '-expert';
-
-							if (PlayState.storyDifficulty == 5)
-								difficulty = '-insane';
-
-							trace('LOADING NEXT SONG');
-							trace(PlayState.storyPlaylist[0].toLowerCase() + difficulty);
-
-							PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
-							FlxG.sound.music.stop();
-
-							LoadingState.loadAndSwitchState(new PlayState());
+							FlxG.sound.playMusic(Paths.music('freakyMenu'), _variables.mvolume / 100);
+							Conductor.changeBPM(102);
 						}
-					case "Freeplay":
-						FlxG.switchState(new MenuFreeplay());
-				}
+
+						FlxG.switchState(new MenuWeek());
+					}
+					else
+					{
+						var difficulty:String = "";
+
+						if (PlayState.storyDifficulty == 0)
+							difficulty = '-noob';
+
+						if (PlayState.storyDifficulty == 1)
+							difficulty = '-easy';
+
+						if (PlayState.storyDifficulty == 3)
+							difficulty = '-hard';
+
+						if (PlayState.storyDifficulty == 4)
+							difficulty = '-expert';
+
+						if (PlayState.storyDifficulty == 5)
+							difficulty = '-insane';
+
+						trace('LOADING NEXT SONG');
+						trace(PlayState.storyPlaylist[0].toLowerCase() + difficulty);
+
+						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
+						FlxG.sound.music.stop();
+
+						LoadingState.loadAndSwitchState(new PlayState());
+					}
+				case "Freeplay":
+					FlxG.switchState(new MenuFreeplay());
 			}
 		}
 	}
 
 	override function destroy()
 	{
-		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
-		{
-			//deez
-		}
-		else 
-		{
-			pauseMusic.destroy();
+		pauseMusic.destroy();
 
-			super.destroy();
-		}
+		super.destroy();
 	}
 
 	function generateRanking():String
