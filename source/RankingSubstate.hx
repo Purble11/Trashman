@@ -33,7 +33,7 @@ class RankingSubstate extends MusicBeatSubstate
 		bg.alpha = 0;
 		bg.scrollFactor.set();
 
-		if (PlayState.storyWeek == 8 && PlayState.gameplayArea == 'Story' && PlayState.SONG.song.toLowerCase() == 'trash-brothers')
+		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
 		{
 			var video:MP4Handler = new MP4Handler();
 
@@ -147,7 +147,7 @@ class RankingSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if (PlayState.storyWeek == 8 && PlayState.gameplayArea == 'Story' && PlayState.SONG.song.toLowerCase() == 'trash-brothers')
+		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
 		{
 			/*if (CreditsBg.alpha == 1 && credits.alpha == 1)
 			{
@@ -172,7 +172,7 @@ class RankingSubstate extends MusicBeatSubstate
 				credits.alpha += 0.2;
 			}*/
 		}
-		else 
+		else
 		{
 			if (pauseMusic.volume < 0.5 * _variables.mvolume / 100)
 				pauseMusic.volume += 0.01 * _variables.mvolume / 100 * elapsed;
@@ -237,7 +237,7 @@ class RankingSubstate extends MusicBeatSubstate
 
 	override function destroy()
 	{
-		if (PlayState.storyWeek == 8 && PlayState.gameplayArea == 'Story' && PlayState.SONG.song.toLowerCase() == 'trash-brothers')
+		if (PlayState.SONG.song.toLowerCase() == 'trash-brothers' && PlayState.gameplayArea == 'Story')
 		{
 			//deez
 		}
